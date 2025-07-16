@@ -1,5 +1,5 @@
 <% layout("/layouts/boilerplate") %>
-<body>
+
     <h3>All listings</h3>
     <!-- <form method="GET" action="/listings/new">
         <button>Create New Listing</button>
@@ -13,9 +13,13 @@
     <div class="card-img-overlay">abcd</div>
   <div class="card-body">
     <p class="card-text">
-        <%= listing.title %><br>
-        &#8377; <%= listing.price.toLocaleString("en-IN") %> / night
-    </p>
+  <%= (listing.price != null && listing.price !== "") 
+      ? `₹ ${Number(listing.price).toLocaleString("en-IN")} / night`
+      : 'Price not available'
+%>
+
+</p>
+
   </div>
 </div>
 </a>
@@ -24,4 +28,4 @@
 </div>
 
 
-</body>
+
